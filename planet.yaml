@@ -1,0 +1,56 @@
+planet:
+  R_p: 6.371e6      # Earth radius in meters
+  M_p: 5.972e24     # Earth mass in kilograms
+  N: 400            # Grid resolution
+
+  layers:
+    - name: core
+      r_outer: 3.48e6    # Core-mantle boundary
+      rho: 12000         # Core density (kg/m³)
+      k: 5000            # Thermal conductivity (W/(m·K))
+      cp: 800            # Specific heat (J/(kg·K))
+
+    - name: mantle
+      r_outer: 6.371e6   # Surface
+      rho: 4500          # Mantle density (kg/m³)
+      k: 5000            # Thermal conductivity (W/(m·K))
+      cp: 1200           # Specific heat (J/(kg·K))
+      eta: 1e40          # Viscosity (Pa·s) - high to suppress convection
+      Tm: 99999          # Melting temperature (K) - very high
+
+radiogenic:
+  type: constant
+  H0: 0.0               # No radiogenic heating for this test
+
+boundary:
+  surface_BC:
+    type: dirichlet
+    value: 288           # Earth average surface temperature (K)
+
+initial:
+  T0:
+    type: adiabatic
+    Tc: 3000             # Core temperature (K)
+    cp: 1200             # Specific heat (J/(kg·K))
+    alpha: 3e-5          # Thermal expansion (1/K)
+
+convection:
+  Ra_c: 1e99            # Critical Rayleigh number
+  A: 0.0                 # Convection disabled
+  n: 1.0
+
+constants:
+  G: 6.6743e-11
+  R_g: 8.314
+
+simulation:
+  t_max: 1.5e7          # 15 million years
+  dt: 1e5                # 100,000 years per step
+  integrator:
+    type: SDIRK2
+    description: Earth cooling simulation
+
+output:
+  save_path: "results/earth_simulation"
+  overwrite: true
+

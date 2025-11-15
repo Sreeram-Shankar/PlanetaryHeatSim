@@ -1,0 +1,89 @@
+{
+  "CTk": {
+    "fg_color": ["#ffe6f2", "#2e0b0b"],
+    "text_color": ["#5e173a", "#ffd8ec"]
+  },
+
+  "CTkLabel": {
+    "text_color": ["#5e173a", "#ffd8ec"],
+    "fg_color": ["#ffe6f2", "#2e0b0b"],
+    "corner_radius": 0,
+    "border_width": 0
+  },
+
+  "CTkFrame": {
+    "fg_color": ["#ffe6f2", "#2e0b0b"],
+    "border_color": ["#e0aac4", "#994c6f"],
+    "corner_radius": 10,
+    "border_width": 2
+  },
+
+  "CTkButton": {
+    "fg_color": ["#f5cce0", "#73264d"],
+    "hover_color": ["#f0b3d1", "#993366"],
+    "text_color": ["#5e173a", "#ffd8ec"],
+    "corner_radius": 10,
+    "border_width": 0,
+    "border_color": ["#f5cce0", "#73264d"],
+    "text_color_disabled": ["#a17a8c", "#cc9bb8"]
+  },
+
+  "CTkEntry": {
+    "fg_color": ["#f5d9e6", "#5f1f3a"],
+    "text_color": ["#5e173a", "#ffd8ec"],
+    "placeholder_text_color": ["#a17a8c", "#bf7fa2"],
+    "corner_radius": 10,
+    "border_width": 2,
+    "border_color": ["#e0aac4", "#994c6f"]
+  },
+
+  "CTkOptionMenu": {
+    "fg_color": ["#f5d9e6", "#5f1f3a"],
+    "text_color": ["#5e173a", "#ffd8ec"],
+    "button_color": ["#f5cce0", "#73264d"],
+    "button_hover_color": ["#f0b3d1", "#993366"],
+    "corner_radius": 10,
+    "border_width": 2,
+    "text_color_disabled": ["#a17a8c", "#cc9bb8"],
+    "border_color": ["#e0aac4", "#994c6f"]
+  },
+
+  "CTkFont": {
+    "family": "Times New Roman",
+    "size": 24,
+    "weight": "normal"
+  },
+
+  "DropdownMenu": {
+    "fg_color": ["#f5d9e6", "#5f1f3a"],
+    "text_color": ["#5e173a", "#ffd8ec"],
+    "hover_color": ["#f0b3d1", "#993366"],
+    "border_color": ["#e0aac4", "#994c6f"]
+  },
+
+  "CTkProgressBar": {
+      "corner_radius": 10,
+      "border_width": 0,
+      "fg_color": ["#f5d9e6", "#5f1f3a"],
+      "progress_color": ["#5e173a", "#ffd8ec"],
+      "border_color": ["#f5d9e6", "#5f1f3a"]
+    },
+
+  "CTkToplevel": {
+    "fg_color": ["#ffe6f2", "#2e0b0b"],
+    "border_color": ["#e0aac4", "#994c6f"],
+    "corner_radius": 15,
+    "border_width": 2
+  },
+  "CTkSlider": {
+    "button_color": ["#f5cce0", "#73264d"],
+    "button_hover_color": ["#f0b3d1", "#993366"],
+    "progress_color": ["#5e173a", "#ffd8ec"],
+    "fg_color": ["#e0aac4", "#994c6f"],
+    "corner_radius": 15,
+    "border_width": 0,
+    "border_color": ["#e0aac4", "#994c6f"],
+    "button_corner_radius": 15,
+    "button_length": 4
+  }
+}
