@@ -89,17 +89,22 @@ Six major plots generated automatically:
 
 The model solves the **spherical heat diffusion equation**:
 
-\[
-\frac{\partial T}{\partial t} = \frac{1}{\rho c_p r^2}
-\frac{\partial}{\partial r}\Big(r^2 k_{\mathrm{eff}} \frac{\partial T}{\partial r}\Big)
-+ \frac{H(t)}{\rho c_p}
-\]
+```math
+\frac{\partial T}{\partial t}
+=
+\frac{1}{\rho c_p r^2}
+\frac{\partial}{\partial r}\left(
+r^2 k_{\mathrm{eff}} \frac{\partial T}{\partial r}
+\right)
++
+\frac{H(t)}{\rho c_p}
+```
 
 with:
 
 - Radial grid: uniform, center → surface  
 - Density from:
-  - constant
+  - constant  
   - linear EOS  
 - Conductivity from:
   - constant  
@@ -116,9 +121,10 @@ with:
 - Multi-isotope exponential decay  
 
 ### 🌋 Convection (Nusselt parameterization)
-\[
-Nu = 1 + A \left(\frac{Ra}{Ra_c}\right)^n
-\]
+
+```math
+Nu = 1 + A \left( \frac{Ra}{Ra_c} \right)^n
+```
 
 applied only to the mantle region.
 
@@ -243,10 +249,10 @@ t, Y_hist = solver(f, (t0, t1), y0, dt)
 ### **Explicit RK Solvers**
 From `rk.py`:
 
-- RK1 (Euler)
-- RK2 (Heun)
-- RK3
-- RK4 (classic)
+- RK1 (Euler)  
+- RK2 (Heun)  
+- RK3  
+- RK4 (classic)  
 - RK5  
 - RK6  
 
@@ -394,9 +400,6 @@ High school computational engineering + numerical analysis researcher
 
 ```
 MIT License
-
+```
 
 ---
-
-This is a *graduate-level* codebase.
-
