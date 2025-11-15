@@ -1,0 +1,56 @@
+planet:
+  R_p: 1.8216e6    # Io radius in meters
+  M_p: 8.9319e22   # Io mass in kilograms
+  N: 250            # Grid resolution
+
+  layers:
+    - name: core
+      r_outer: 0.9e6      # Iron-sulfur core
+      rho: 9500           # Core density (kg/m³)
+      k: 3500             # Thermal conductivity (W/(m·K))
+      cp: 750             # Specific heat (J/(kg·K))
+
+    - name: mantle
+      r_outer: 1.8216e6   # Surface
+      rho: 3500           # Mantle density (kg/m³) - silicate mantle
+      k: 3500             # Thermal conductivity (W/(m·K))
+      cp: 1100            # Specific heat (J/(kg·K))
+      eta: 1e40           # Viscosity (Pa·s)
+      Tm: 99999           # Melting temperature (K)
+
+radiogenic:
+  type: constant
+  H0: 0.0                # Radiogenic heating minimal compared to tidal heating
+
+boundary:
+  surface_BC:
+    type: dirichlet
+    value: 130            # Io average surface temperature (K) - very cold surface despite internal heat
+
+initial:
+  T0:
+    type: adiabatic
+    Tc: 2000              # Core temperature (K) - but with significant tidal heating
+    cp: 1100              # Specific heat (J/(kg·K))
+    alpha: 3e-5           # Thermal expansion (1/K)
+
+convection:
+  Ra_c: 1e99             # Critical Rayleigh number
+  A: 0.0                  # Convection disabled
+  n: 1.0
+
+constants:
+  G: 6.6743e-11
+  R_g: 8.314
+
+simulation:
+  t_max: 4.5e9           # 4.5 billion years
+  dt: 1e6                 # 1 million years per step
+  integrator:
+    type: RK2
+    description: Io thermal evolution (note: Io has significant tidal heating not modeled here)
+
+output:
+  save_path: "results/io_simulation"
+  overwrite: true
+

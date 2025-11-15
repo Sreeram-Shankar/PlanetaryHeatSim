@@ -1,0 +1,56 @@
+planet:
+  R_p: 1.737e6      # Moon radius in meters
+  M_p: 7.342e22    # Moon mass in kilograms
+  N: 200            # Grid resolution (smaller body, fewer points)
+
+  layers:
+    - name: core
+      r_outer: 0.38e6     # Small iron core (radius ~380 km)
+      rho: 10000          # Core density (kg/m³)
+      k: 3000             # Thermal conductivity (W/(m·K))
+      cp: 700             # Specific heat (J/(kg·K))
+
+    - name: mantle
+      r_outer: 1.737e6    # Surface
+      rho: 3300           # Mantle density (kg/m³) - less dense than Earth
+      k: 3000             # Thermal conductivity (W/(m·K))
+      cp: 1000            # Specific heat (J/(kg·K))
+      eta: 1e40           # Viscosity (Pa·s)
+      Tm: 99999           # Melting temperature (K)
+
+radiogenic:
+  type: constant
+  H0: 0.0                # No radiogenic heating
+
+boundary:
+  surface_BC:
+    type: dirichlet
+    value: 250            # Moon average surface temperature (K) - varies greatly day/night
+
+initial:
+  T0:
+    type: adiabatic
+    Tc: 2000              # Core temperature (K) - cooler than Earth/Mars
+    cp: 1000              # Specific heat (J/(kg·K))
+    alpha: 3e-5           # Thermal expansion (1/K)
+
+convection:
+  Ra_c: 1e99             # Critical Rayleigh number
+  A: 0.0                  # Convection disabled
+  n: 1.0
+
+constants:
+  G: 6.6743e-11
+  R_g: 8.314
+
+simulation:
+  t_max: 4.5e9           # 4.5 billion years (Moon age)
+  dt: 1e6                 # 1 million years per step
+  integrator:
+    type: RK2
+    description: Moon thermal evolution
+
+output:
+  save_path: "results/moon_simulation"
+  overwrite: true
+

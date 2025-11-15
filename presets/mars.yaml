@@ -1,0 +1,56 @@
+planet:
+  R_p: 3.3895e6     # Mars radius in meters
+  M_p: 6.417e23     # Mars mass in kilograms
+  N: 300            # Grid resolution
+
+  layers:
+    - name: core
+      r_outer: 1.8e6      # Core-mantle boundary (smaller core than Earth)
+      rho: 11000          # Core density (kg/m³) - slightly less dense than Earth
+      k: 4000             # Thermal conductivity (W/(m·K))
+      cp: 750             # Specific heat (J/(kg·K))
+
+    - name: mantle
+      r_outer: 3.3895e6   # Surface
+      rho: 3800           # Mantle density (kg/m³) - less dense than Earth
+      k: 4000             # Thermal conductivity (W/(m·K))
+      cp: 1100            # Specific heat (J/(kg·K))
+      eta: 1e40           # Viscosity (Pa·s)
+      Tm: 99999           # Melting temperature (K)
+
+radiogenic:
+  type: constant
+  H0: 0.0                # No radiogenic heating
+
+boundary:
+  surface_BC:
+    type: dirichlet
+    value: 210            # Mars average surface temperature (K)
+
+initial:
+  T0:
+    type: adiabatic
+    Tc: 2500              # Core temperature (K) - cooler than Earth
+    cp: 1100              # Specific heat (J/(kg·K))
+    alpha: 3e-5           # Thermal expansion (1/K)
+
+convection:
+  Ra_c: 1e99             # Critical Rayleigh number
+  A: 0.0                  # Convection disabled
+  n: 1.0
+
+constants:
+  G: 6.6743e-11
+  R_g: 8.314
+
+simulation:
+  t_max: 4.5e9           # 4.5 billion years (Mars age)
+  dt: 1e6                 # 1 million years per step
+  integrator:
+    type: RK2
+    description: Mars thermal evolution
+
+output:
+  save_path: "results/mars_simulation"
+  overwrite: true
+
